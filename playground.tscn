@@ -1,9 +1,90 @@
 [gd_scene format=3 uid="uid://bi8dc8p5iwfqu"]
 
-[ext_resource type="Texture2D" uid="uid://c8s3mbcbho2oq" path="res://icon.png" id="1_rupst"]
+[ext_resource type="PackedScene" uid="uid://gqv4auwyni6o" path="res://player/player.tscn" id="1_rupst"]
 
-[node name="Node2D" type="Node2D" unique_id=150183575]
+[sub_resource type="Gradient" id="Gradient_edjgo"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
 
-[node name="Icon" type="Sprite2D" parent="." unique_id=496838270]
-position = Vector2(210, 125)
-texture = ExtResource("1_rupst")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rupst"]
+gradient = SubResource("Gradient_edjgo")
+width = 16
+height = 16
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wt17y"]
+size = Vector2(16, 16)
+
+[node name="Playground" type="Node2D" unique_id=150183575]
+
+[node name="Suelo" type="Sprite2D" parent="." unique_id=1189387242]
+position = Vector2(239, 266)
+scale = Vector2(30.875, 1)
+texture = SubResource("GradientTexture2D_rupst")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Suelo" unique_id=249558346]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Suelo/StaticBody2D" unique_id=1112867518]
+shape = SubResource("RectangleShape2D_wt17y")
+
+[node name="Techo" type="Sprite2D" parent="." unique_id=1470716489]
+position = Vector2(239.00002, 4)
+scale = Vector2(30.875, 1)
+texture = SubResource("GradientTexture2D_rupst")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Techo" unique_id=171585154]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Techo/StaticBody2D" unique_id=275017264]
+shape = SubResource("RectangleShape2D_wt17y")
+
+[node name="Suelo Alto" type="Sprite2D" parent="." unique_id=1988841609]
+position = Vector2(61, 228.00002)
+scale = Vector2(5.8124976, 4.0000005)
+texture = SubResource("GradientTexture2D_rupst")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Suelo Alto" unique_id=323838776]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Suelo Alto/StaticBody2D" unique_id=338641507]
+shape = SubResource("RectangleShape2D_wt17y")
+
+[node name="Obstaculo" type="Sprite2D" parent="." unique_id=1338958169]
+position = Vector2(391.25, 233.50002)
+scale = Vector2(4.093747, 3.3125014)
+texture = SubResource("GradientTexture2D_rupst")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Obstaculo" unique_id=1466098775]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstaculo/StaticBody2D" unique_id=601322605]
+shape = SubResource("RectangleShape2D_wt17y")
+
+[node name="Suelo Inclinado" type="Sprite2D" parent="." unique_id=767585738]
+position = Vector2(175.83331, 256.98734)
+rotation = 0.37238598
+scale = Vector2(10.72985, 3.9938908)
+texture = SubResource("GradientTexture2D_rupst")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Suelo Inclinado" unique_id=2136973454]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Suelo Inclinado/StaticBody2D" unique_id=565355599]
+shape = SubResource("RectangleShape2D_wt17y")
+
+[node name="Pared Izquierda" type="Sprite2D" parent="." unique_id=1374523879]
+position = Vector2(8, 132)
+scale = Vector2(0.99999976, 17.75)
+texture = SubResource("GradientTexture2D_rupst")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Pared Izquierda" unique_id=1915187078]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pared Izquierda/StaticBody2D" unique_id=1501794911]
+shape = SubResource("RectangleShape2D_wt17y")
+
+[node name="Pared Derecha" type="Sprite2D" parent="." unique_id=1577996893]
+position = Vector2(472, 134)
+scale = Vector2(0.99999976, 17.75)
+texture = SubResource("GradientTexture2D_rupst")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Pared Derecha" unique_id=786995363]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pared Derecha/StaticBody2D" unique_id=1759328948]
+shape = SubResource("RectangleShape2D_wt17y")
+
+[node name="Player" parent="." unique_id=2119250754 instance=ExtResource("1_rupst")]
+position = Vector2(58, 100)
